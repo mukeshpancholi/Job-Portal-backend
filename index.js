@@ -4,12 +4,13 @@ const errorMiddleware = require("./middleware/errorMiddleware.js");
 
 const express = require("express");
 const app = express();
-const port = 8080;
+const port = 5000;
 app.use(express.json());
 
 connectToMongodb();
 
-app.use("/api/v1/auth", authRout);
+app.use("/api/", authRout);
+app.use("api/", authRout);
 
 app.use(errorMiddleware);
 
